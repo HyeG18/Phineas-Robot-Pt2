@@ -1,0 +1,494 @@
+/* Colores Temáticos Phineas & Ferb:
+   - Fondo: Celeste (Cielo)
+   - Accent: Naranja (Pelo de Phineas)
+   - Teal/Cian: (Pantalones de Phineas / Look Tecnológico)
+*/
+
+body { 
+    font-family: 'Trebuchet MS', Verdana, Arial, sans-serif; /* Fuente más amigable */
+    text-align: center; 
+    margin: 0; 
+    padding: 10px;
+    background-color: #e0f7fa; /* Celeste claro, como el cielo */
+    color: #333;
+}
+
+h1 { 
+    color: #ff6600; /* Naranja Brillante (Pelo de Phineas) */ 
+    margin: 10px 0 5px 0; 
+    font-size: 2.5em;
+    text-shadow: 2px 2px 0 #fff; /* Efecto cartoon */
+    display: inline-block;
+}
+h3 { 
+    color: #008080; /* Cian oscuro */ 
+    border-bottom: 2px solid #ff6600; 
+    padding-bottom: 5px; 
+    margin-top: 0;
+}
+
+/* --- HEADER BAR (Para alinear el logo y título) --- */
+#header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+#phineas-icon {
+    width: 60px; /* Tamaño del icono */
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #ff6600;
+}
+#subtitle {
+    color: #4CAF50; /* Verde Ferb */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* --- LAYOUT GENERAL --- */
+#two-column-layout {
+    display: flex;
+    align-items: flex-start; 
+    margin: 20px auto; 
+    max-width: 1200px; 
+    flex-wrap: wrap; 
+    text-align: left;
+    gap: 30px; /* Más espacio */
+}
+
+
+/* ======================================= */
+/* 1. MODO DE CONTROL */
+/* ======================================= */
+#mode-controls {
+    margin: 20px auto; 
+    max-width: 1000px; 
+    text-align: center; 
+    background-color: #fff; /* Fondo blanco para destacar */
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#mode-buttons-wrapper {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    margin-top: 15px; 
+}
+
+
+/* ======================================= */
+/* 2a. ÁREA IZQUIERDA: CÁMARA Y CONTROLES */
+/* ======================================= */
+#video-controls-area {
+    display: flex; 
+    flex: 0 0 65%; 
+    max-width: 65%; 
+    align-items: stretch; 
+    padding-right: 0;
+    gap: 20px; 
+}
+
+/* ESTILO DE MARCO MONITOR (más cartoon/ciencia ficción) */
+#video-box { 
+    flex: 1; 
+    min-width: 350px; 
+    max-width: 500px; 
+    
+    background-color: #000; /* Fondo oscuro de la pantalla */
+    border: 8px solid #ff6600; /* Borde naranja brillante */
+    border-radius: 20px; 
+    box-shadow: 
+        0 0 30px rgba(255, 102, 0, 0.7), /* Resplandor naranja */
+        inset 0 0 15px rgba(0, 0, 0, 0.9); 
+    padding: 10px; 
+}
+
+#video-box img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+    border: 2px solid #008080; /* Borde cian interno */
+}
+
+/* Controles de Movimiento (el pad) */
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; 
+    padding: 0;
+    flex: 1; 
+    justify-content: center; 
+    background-color: #fff;
+    border: 5px solid #008080; /* Borde cian */
+    border-radius: 15px;
+    max-width: 200px;
+}
+
+#controls > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px; /* Pequeño padding interno */
+}
+
+/* ======================================================== */
+/* >>> ESTILOS DE BOTONES DE MOVIMIENTO (D-PAD) <<<         */
+/* ======================================================== */
+
+.move-btn {
+    width: 30%; 
+    height: auto; 
+    min-height: 55px; 
+    
+    background: linear-gradient(to bottom, #17a2b8, #138496); /* Cian/Teal */
+    color: white;
+    font-size: 20px;
+    border-radius: 15px; 
+    border: 1px solid #0c5460; 
+    box-shadow: 0 6px 0 0 #0c5460; /* Sombra 3D profunda (Cian oscuro) */
+    transition: all 0.1s ease-out;
+}
+
+.move-btn[data-action="forward"], 
+.move-btn[data-action="backward"] {
+    width: 90%; 
+    min-height: 65px; 
+}
+
+/* Botón STOP - Rojo de Emergencia (Playa) */
+.stop-btn { 
+    background: linear-gradient(to bottom, #dc3545, #bd2130) !important; /* Gradiente Rojo */
+    box-shadow: 0 6px 0 0 #881823 !important; /* Sombra 3D profunda (Rojo aún más oscuro) */
+    border-radius: 50% !important; 
+    border: 1px solid #881823 !important;
+    width: 65px !important; 
+    height: 65px !important; 
+    min-height: 65px !important;
+    font-size: 28px !important; 
+    padding: 0 !important;
+}
+
+.move-btn:active, .stop-btn:active {
+    transform: translateY(4px) !important; 
+    box-shadow: 0 2px 0 0 #0c5460 !important; 
+}
+
+.stop-btn:active {
+    box-shadow: 0 2px 0 0 #881823 !important; 
+}
+
+/* ======================================= */
+/* 2b. ÁREA DERECHA: GPS y Estado */
+/* ======================================= */
+#main-content-wrapper {
+    flex: 1; 
+    min-width: 280px; 
+    max-width: 30%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espacio entre las cajas */
+}
+
+#gps-info, #phineas-message, #map-container { 
+    padding: 15px; 
+    border: 3px solid #ff6600; /* Borde naranja temático */ 
+    width: 100%; 
+    text-align: left; 
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box; /* Asegura que padding y borde no aumenten el ancho total */
+}
+
+/* NUEVO: Contenedor para el mapa Leaflet */
+#robot-map {
+    height: 300px; /* CRUCIAL: Leaflet necesita una altura definida */
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+
+#phineas-message p {
+    font-style: italic;
+    color: #4CAF50; /* Verde Ferb */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/* ======================================= */
+/* 3. ESTILOS GENERALES DE BOTONES (MODO) */
+/* ======================================= */
+
+.control-btn { 
+    padding: 15px 10px; 
+    font-size: 18px; 
+    height: 60px; 
+    cursor: pointer; 
+    border: none;
+    border-radius: 12px; 
+    transition: all 0.2s ease-in-out; 
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+/* Botones de Modo - ESTILOS DE TOGGLE SWITCH */
+.mode-btn {
+    width: 180px; 
+    color: white; 
+    font-size: 17px;
+    border-radius: 30px; 
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.mode-btn[data-mode="dog"] {
+    background: linear-gradient(to bottom, #4CAF50, #388E3C); /* Verde Ferb */
+}
+
+.mode-btn[data-mode="manual"] {
+    background: linear-gradient(to bottom, #1E90FF, #007BFF); /* Azul Deportivo */
+}
+
+.mode-btn[data-mode="bottle"] {
+    background: linear-gradient(to bottom, #FF6600, #CC5200); /* Naranja Phineas */
+}
+
+.mode-btn[data-mode="gps"] {
+    background: linear-gradient(to bottom, #FFD700, #DAA520); /* Dorado/Amarillo */
+    width: 150px; 
+}
+
+/* NUEVO: Botón Waypoint - Rojo (Para un objetivo de navegación) */
+.mode-btn[data-mode="waypoint"],
+.mode-btn[data-mode="navigation"] { /* También para el modo de Navegación existente */
+    background: linear-gradient(to bottom, #9400D3, #8A2BE2); /* Violeta */
+}
+
+
+/* ESTADO ACTIVO (Brillo y Borde Blanco/Naranja) */
+.mode-btn.active-mode, .mode-btn.active-gps {
+    transform: translateY(0); 
+    font-size: 19px; 
+    font-weight: 900;
+    border: 3px solid white; 
+    background: none; 
+    box-shadow: none; 
+}
+
+/* Estilo ACTIVO para DOG MODE */
+.mode-btn[data-mode="dog"].active-mode {
+    background-color: #38c172; 
+    box-shadow: 
+        0 0 20px 5px rgba(56, 193, 114, 0.9), 
+        0 4px 10px rgba(0, 0, 0, 0.3); 
+    border-color: #b8f0ca;
+}
+
+/* Estilo ACTIVO para MANUAL MODE */
+.mode-btn[data-mode="manual"].active-mode {
+    background-color: #3490dc; 
+    box-shadow: 
+        0 0 20px 5px rgba(52, 144, 220, 0.9), 
+        0 4px 10px rgba(0, 0, 0, 0.3); 
+    border-color: #b8e0f7;
+}
+
+/* Estilo ACTIVO para BÚSQUEDA BOTELLA */
+.mode-btn[data-mode="bottle"].active-mode {
+    background-color: #ff6600; 
+    box-shadow: 
+        0 0 20px 5px rgba(255, 102, 0, 0.9), 
+        0 4px 10px rgba(0, 0, 0, 0.3); 
+    border-color: #ffcc99;
+}
+
+/* Estilo ACTIVO para WAYPOINT/NAVIGATION */
+.mode-btn[data-mode="waypoint"].active-mode,
+.mode-btn[data-mode="navigation"].active-mode {
+    background-color: #9400D3; 
+    box-shadow: 
+        0 0 20px 5px rgba(148, 0, 211, 0.9), 
+        0 4px 10px rgba(0, 0, 0, 0.3); 
+    border-color: #d1b3ff;
+}
+
+
+/* === ESTILO ACTIVO GPS === */
+.mode-btn.active-gps {
+    background-color: #FFD700; 
+    color: #333; /* Texto negro para contraste */
+    text-shadow: none;
+    box-shadow: 
+        0 0 20px 5px rgba(255, 215, 0, 0.9), 
+        0 4px 10px rgba(0, 0, 0, 0.3); 
+    border-color: #fff8dc;
+}
+
+#footer {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #008080; /* Cian oscuro */
+    color: white;
+    border-top: 5px solid #ff6600;
+    font-size: 0.9em;
+}
+
+
+/* ======================================= */
+/* 4. AJUSTE RESPONSIVE (Móviles) */
+/* ======================================= */
+@media (max-width: 800px) {
+    #header-bar {
+        flex-direction: column;
+        gap: 5px;
+    }
+    h1 { font-size: 2em; }
+    #subtitle { font-size: 1em; }
+    
+    #two-column-layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    #video-controls-area,
+    #main-content-wrapper {
+        flex: 0 0 100%;
+        max-width: 95%; /* Usar casi todo el ancho */
+    }
+
+    /* En móvil, los controles de movimiento vuelven a estar debajo de la cámara */
+    #video-controls-area {
+        display: flex; 
+        flex-direction: column; 
+        align-items: center;
+        gap: 15px;
+    }
+    
+    #video-box {
+        max-width: 100%;
+        padding: 10px;
+    }
+    
+    #controls {
+        max-width: 90%; 
+        min-width: 300px;
+        margin: 0 auto;
+        padding: 10px;
+        gap: 10px; 
+    }
+
+    .move-btn {
+        height: 50px; 
+        min-height: unset;
+        font-size: 18px;
+    }
+
+    .move-btn[data-action="forward"], 
+    .move-btn[data-action="backward"] {
+        min-height: 55px; 
+    }
+    
+    .stop-btn {
+        width: 55px !important;
+        height: 55px !important;
+        min-height: 55px !important;
+        font-size: 24px !important;
+    }
+
+    #gps-info, #phineas-message, #map-container {
+        width: 100%;
+    }
+    
+    /* Ajuste para que todos los botones de modo quepan en línea en móvil */
+    #mode-buttons-wrapper {
+        flex-wrap: wrap; 
+        padding: 0 5px;
+        gap: 10px;
+    }
+    .mode-btn {
+        width: 45%; 
+        font-size: 16px;
+    }
+    
+    /* Corregir el tamaño del botón GPS/Waypoint/Navigation en móvil */
+    .mode-btn[data-mode="gps"] {
+        width: 45%; /* Asegura que quepa junto a otro */
+    }
+}
+
+/* ======================================= */
+/* 5. ESTILOS PARA MAPA Y WAYPOINTS (LEAFLET) */
+/* ======================================= */
+
+/* Ajuste sutil para el borde del mapa */
+#robot-map {
+    height: 350px; /* Se recomienda una altura un poco mayor para visualización */
+    border: 3px solid #008080; /* Cian, para que se vea más temático */
+}
+
+/* Estilo para el icono de Waypoint (Creado con L.divIcon) */
+.waypoint-icon {
+    /* Forma y color del punto en el mapa */
+    background-color: #ff6600; /* Naranja Phineas */
+    border: 2px solid white;
+    border-radius: 50%;
+    
+    /* Centrado del número */
+    text-align: center;
+    line-height: 26px; /* Altura de línea para centrar el texto verticalmente */
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    
+    /* Dimensiones y centrado absoluto (Crucial para Leaflet L.divIcon) */
+    width: 30px !important; 
+    height: 30px !important;
+    margin-left: -15px !important; /* Mueve 1/2 del ancho a la izquierda */
+    margin-top: -15px !important; /* Mueve 1/2 del alto hacia arriba */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+/* Estilo para el botón dinámico de "Enviar Waypoints" añadido por control.js */
+/* Se utiliza un selector general ya que JS le asignó control-btn y mode-btn */
+.control-btn.mode-btn:last-of-type {
+    /* El JS le aplica un color inline, pero podemos mejorarlo aquí si queremos */
+    /* Este selector ayuda a estilizar el botón de envío si se agregó al final */
+}
+
+/* Asegurar que los divs del mapa (Leaflet) no se vean afectados por el estilo general de borde */
+.leaflet-container {
+    background: transparent;
+}
+
+/* Esto evita que el CSS responsive deforme el mapa y mueva el punto */
+/* .leaflet-pane img, 
+.leaflet-tile, 
+.leaflet-marker-icon, 
+.leaflet-marker-shadow {
+    width: auto !important; 
+    height: auto !important; 
+    max-width: none !important; 
+    max-height: none !important; 
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+} */
+
+/* Asegura que el contenedor tenga posición relativa para que los puntos se ubiquen bien */
+#robot-map {
+    position: relative;
+    z-index: 1;
+    background-color: #ddd; /* Para ver si el mapa cargó aunque no haya internet */
+}
